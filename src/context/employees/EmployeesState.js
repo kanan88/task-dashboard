@@ -41,6 +41,51 @@ const EmployeesState = (props) => {
   };
 
   // Add a new employee
+  const addEmployee = async (employee) => {
+    try {
+      setLoading();
+
+      const res = await fetch("http://localhost:5001/employees", {
+        method: "POST",
+        body: JSON.stringify(employee),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+
+      dispatch({
+        type: ADD_EMPLOYEE,
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: EMPLOYEES_ERROR,
+        payload: err.response.statusText,
+      });
+    }
+  };
+
+  // Delete an employee from server
+  const deleteEmployee = async (id) => {
+    try {
+      setLoading();
+
+      await fetch(`http://localhost:5001/employees/${id}`, {
+        method: "DELETE",
+      });
+
+      dispatch({
+        type: DELETE_EMPLOYEE,
+        payload: id,
+      });
+    } catch (err) {
+      dispatch({
+        type: EMPLOYEES_ERROR,
+        payload: err.response.statusText,
+      });
+    }
+  };
 
   // Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
@@ -51,6 +96,8 @@ const EmployeesState = (props) => {
         employees: state.employees,
         loading: state.loading,
         getEmployees,
+        addEmployee,
+        deleteEmployee,
       }}
     >
       {props.children}

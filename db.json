@@ -1,35 +1,20 @@
 {
-  "tasks": [
+  "tasks": [],
+  "employees": [
     {
-      "message": "Task 1 ",
-      "attention": true,
-      "employee": "John Smith",
-      "date": "2024-04-13T21:40:29.893Z",
+      "firstName": "Adam ",
+      "lastName": "Smith",
       "id": 1
     },
     {
-      "message": "Task 2",
-      "attention": true,
-      "employee": "Carl Leandro",
-      "date": "2024-04-13T21:40:47.957Z",
+      "firstName": "John ",
+      "lastName": "Smith",
       "id": 2
-    }
-  ],
-  "employees": [
-    {
-      "id": "1",
-      "firstName": "John",
-      "lastName": "Smith"
     },
     {
-      "id": "2",
-      "firstName": "Adam",
-      "lastName": "Smith"
-    },
-    {
-      "id": "3",
-      "firstName": "Carl",
-      "lastName": "Leandro"
+      "firstName": "Karl",
+      "lastName": "Max",
+      "id": 3
     }
   ]
 }

@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import EmployeesContext from "@/context/employees/employeesContext";
 
 const AddEmployeeModal = () => {
+  const employeesContext = useContext(EmployeesContext);
+  const { addEmployee } = employeesContext;
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
   const onSubmit = () => {
-    if (message === "" || employee === "") {
+    if (firstName === "" || lastName === "") {
       M.toast({ html: "Please enter the first and last name" });
     } else {
-      console.log(firstName, lastName);
+      addEmployee({ firstName: firstName, lastName: lastName });
+
+      M.toast({ html: `${firstName} ${lastName} was added as a new employee` });
 
       // Clear fields
       setFirstName("");

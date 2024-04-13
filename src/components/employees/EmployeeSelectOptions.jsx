@@ -12,7 +12,8 @@ const EmployeeSelectOptions = () => {
 
   return (
     !loading &&
-    employees?.map((emp) => (
+    employees !== null &&
+    employees.map((emp) => (
       <option key={emp.id} value={`${emp.firstName} ${emp.lastName}`}>
         {emp.firstName} {emp.lastName}
       </option>
