@@ -3,23 +3,23 @@
     {
       "id": 1,
       "message": "Test message 1",
-      "attention": false,
+      "attention": true,
       "date": "03-02-2024",
-      "tech": "John Smith"
+      "employee": "John Smith"
     },
     {
       "id": 2,
       "message": "Test message 2",
       "attention": false,
       "date": "03-02-2024",
-      "tech": "Adam Smith"
+      "employee": "Adam Smith"
     },
     {
       "id": 3,
       "message": "Test message 3",
       "attention": false,
       "date": "03-02-2024",
-      "tech": "Carl Leandro"
+      "employee": "Carl Leandro"
     }
   ],
   "employees": [

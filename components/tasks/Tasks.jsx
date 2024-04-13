@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import TaskItem from "./TaskItem";
+import Preloader from "../layout/Preloader";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -18,18 +20,18 @@ const Tasks = () => {
   };
 
   if (loading) {
-    return <h4>Loading...</h4>;
+    return <Preloader />;
   }
 
   return (
-    <ul className="collection-with-header">
+    <ul className="collection with-header">
       <li className="collection-header">
         <h4 className="center">Tasks</h4>
       </li>
       {!loading && tasks.length === 0 ? (
         <p className="center">No tasks to show...</p>
       ) : (
-        tasks.map((task) => <li key={task.id}>{task.message}</li>)
+        tasks.map((task) => <TaskItem key={task.id} task={task} />)
       )}
     </ul>
   );
