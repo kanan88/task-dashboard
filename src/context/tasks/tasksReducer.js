@@ -41,6 +41,7 @@ const tasksReducer = (state, action) => {
       return {
         ...state,
         tasks: action.payload,
+        loading: false,
       };
     case SET_CURRENT:
       return {

@@ -140,7 +140,7 @@ const TasksState = (props) => {
     try {
       setLoading();
 
-      const res = await fetch(`http://localhost:5001/tasks/?q=${text}`);
+      const res = await fetch(`http://localhost:5001/tasks?q=${text}`);
       const data = await res.json();
 
       dispatch({
