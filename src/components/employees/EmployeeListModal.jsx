@@ -1,22 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import EmployeeItem from "./EmployeeItem";
+import EmployeesContext from "@/context/employees/employeesContext";
 
 const EmployeeListModal = () => {
-  const [employees, setEmployees] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const employeesContext = useContext(EmployeesContext);
+  const { employees, getEmployees, loading } = employeesContext;
 
   useEffect(() => {
     getEmployees();
+    //eslint-disable-next-line
   }, []);
-
-  const getEmployees = async () => {
-    setLoading(true);
-    const res = await fetch("http://localhost:5001/employees");
-    const data = await res.json();
-
-    setEmployees(data);
-    setLoading(false);
-  };
 
   return (
     <div id="employee-list-modal" className="modal">
@@ -24,7 +17,7 @@ const EmployeeListModal = () => {
         <h4>Employee List</h4>
         <ul className="collection">
           {!loading &&
-            employees.map((emp) => (
+            employees?.map((emp) => (
               <EmployeeItem key={emp.id} employee={emp} />
             ))}
         </ul>

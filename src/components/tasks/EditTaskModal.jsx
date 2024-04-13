@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 import TasksContext from "@/context/tasks/tasksContext";
+import EmployeeSelectOptions from "../employees/EmployeeSelectOptions";
 
 const EditTaskModal = () => {
   const tasksContext = useContext(TasksContext);
@@ -73,9 +74,7 @@ const EditTaskModal = () => {
               <option value="" disabled>
                 Select an Employee
               </option>
-              <option value="John Smith">John Smith</option>
-              <option value="Adam Smith">Adam Smith</option>
-              <option value="Carl Leandro">Carl Leandro</option>
+              <EmployeeSelectOptions />
             </select>
           </div>
         </div>

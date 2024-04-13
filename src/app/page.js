@@ -12,6 +12,7 @@ import AddEmployeeModal from "@/components/employees/AddEmployeeModal";
 import EmployeeListModal from "@/components/employees/EmployeeListModal";
 
 import TasksState from "@/context/tasks/TasksState";
+import EmployeesState from "@/context/employees/EmployeesState";
 
 const Home = () => {
   useEffect(() => {
@@ -20,17 +21,21 @@ const Home = () => {
   });
 
   return (
-    <TasksState>
-      <SearchBar />
-      <div className="container">
-        <AddBtn />
-        <AddTaskModal />
-        <EditTaskModal />
-        <AddEmployeeModal />
-        <EmployeeListModal />
-        <Tasks />
-      </div>
-    </TasksState>
+    <>
+      <EmployeesState>
+        <TasksState>
+          <SearchBar />
+          <div className="container">
+            <AddBtn />
+            <AddTaskModal />
+            <EditTaskModal />
+            <AddEmployeeModal />
+            <EmployeeListModal />
+            <Tasks />
+          </div>
+        </TasksState>
+      </EmployeesState>
+    </>
   );
 };
 

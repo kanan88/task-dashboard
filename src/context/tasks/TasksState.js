@@ -40,7 +40,7 @@ const TasksState = (props) => {
     } catch (err) {
       dispatch({
         type: TASKS_ERROR,
-        payload: err.response.data,
+        payload: err.response.statusText,
       });
     }
   };
@@ -66,7 +66,7 @@ const TasksState = (props) => {
     } catch (err) {
       dispatch({
         type: TASKS_ERROR,
-        payload: err.response.data,
+        payload: err.response.statusText,
       });
     }
   };
@@ -94,7 +94,7 @@ const TasksState = (props) => {
     } catch (err) {
       dispatch({
         type: TASKS_ERROR,
-        payload: err.response.data,
+        payload: err.response.statusText,
       });
     }
   };
@@ -115,7 +115,7 @@ const TasksState = (props) => {
     } catch (err) {
       dispatch({
         type: TASKS_ERROR,
-        payload: err.response.data,
+        payload: err.response.statusText,
       });
     }
   };
@@ -150,7 +150,7 @@ const TasksState = (props) => {
     } catch (err) {
       dispatch({
         type: TASKS_ERROR,
-        payload: err.response.data,
+        payload: err.response.statusText,
       });
     }
   };
