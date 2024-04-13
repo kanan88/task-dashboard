@@ -23,7 +23,7 @@ const AddTaskModal = () => {
 
       addTask(newTask);
 
-      M.toast({ html: `Log added by ${employee}` });
+      M.toast({ html: `Task added by ${employee}` });
 
       // Clear fields
       setMessage("");

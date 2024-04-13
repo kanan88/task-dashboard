@@ -1,20 +1,46 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import TasksContext from "@/context/tasks/tasksContext";
 
 const EditTaskModal = () => {
+  const tasksContext = useContext(TasksContext);
+  const { updateTask, current } = tasksContext;
+
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [employee, setEmployee] = useState("");
+
+  useEffect(() => {
+    if (current) {
+      console.log(current + "000");
+      setMessage(current.message);
+      setAttention(current.attention);
+      setEmployee(current.employee);
+    }
+  }, [current]);
 
   const onSubmit = () => {
     if (message === "" || employee === "") {
       M.toast({ html: "Please enter a message and an employee" });
     } else {
-      console.log(message, employee, attention);
-      // Clear fields
-      setMessage("");
-      setEmployee("");
-      setAttention(false);
+      if (current) {
+        const updated = {
+          id: current.id,
+          message,
+          attention,
+          employee,
+          date: new Date(),
+        };
+
+        updateTask(updated);
+
+        M.toast({ html: `Task updated by ${employee}` });
+
+        // Clear fields
+        setMessage("");
+        setEmployee("");
+        setAttention(false);
+      }
     }
   };
 
