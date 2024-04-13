@@ -7,6 +7,9 @@ import SearchBar from "../../components/layout/SearchBar";
 import Tasks from "../../components/tasks/Tasks";
 import AddBtn from "../../components/layout/AddBtn";
 import AddTaskModal from "../../components/tasks/AddTaskModal";
+import EditTaskModal from "../../components/tasks/EditTaskModal";
+import AddEmployeeModal from "../../components/employees/AddEmployeeModal";
+import EmployeeListModal from "../../components/employees/EmployeeListModal";
 
 const Home = () => {
   useEffect(() => {
@@ -20,6 +23,9 @@ const Home = () => {
       <div className="container">
         <AddBtn />
         <AddTaskModal />
+        <EditTaskModal />
+        <AddEmployeeModal />
+        <EmployeeListModal />
         <Tasks />
       </div>
     </>

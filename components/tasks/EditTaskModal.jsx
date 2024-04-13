@@ -1,7 +1,7 @@
 import { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 
-const AddTaskModal = () => {
+const EditTaskModal = () => {
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [employee, setEmployee] = useState("");
@@ -11,7 +11,6 @@ const AddTaskModal = () => {
       M.toast({ html: "Please enter a message and an employee" });
     } else {
       console.log(message, employee, attention);
-
       // Clear fields
       setMessage("");
       setEmployee("");
@@ -20,7 +19,7 @@ const AddTaskModal = () => {
   };
 
   return (
-    <div id="add-task-modal" className="modal" style={modalStyle}>
+    <div id="edit-task-modal" className="modal" style={modalStyle}>
       <div className="modal-content">
         <h4>Enter a Task</h4>
         <div className="row">
@@ -91,4 +90,4 @@ const modalStyle = {
   height: "75%",
 };
 
-export default AddTaskModal;
+export default EditTaskModal;
