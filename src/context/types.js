@@ -1,0 +1,13 @@
+export const GET_TASKS = "GET_TASKS";
+export const ADD_TASK = "ADD_TASK";
+export const UPDATE_TASK = "UPDATE_TASK";
+export const DELETE_TASK = "DELETE_TASK";
+export const SET_LOADING = "SET_LOADING";
+export const SET_CURRENT = "SET_CURRENT";
+export const CLEAR_TASKS = "CLEAR TASKS";
+export const TASKS_ERROR = "TASKS_ERROR";
+export const SEARCH_TASKS = "SEARCH_TASKS";
+export const GET_EMPLOYEES = "GET_EMPLOYEES";
+export const ADD_EMPLOYEE = "ADD_EMPLOYEE";
+export const DELETE_EMPLOYEE = "DELETE_EMPLOYEE";
+export const EMPLOYEES_ERROR = "EMPLOYEES_ERROR";

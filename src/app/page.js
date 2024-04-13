@@ -11,6 +11,8 @@ import EditTaskModal from "@/components/tasks/EditTaskModal";
 import AddEmployeeModal from "@/components/employees/AddEmployeeModal";
 import EmployeeListModal from "@/components/employees/EmployeeListModal";
 
+import TasksState from "@/context/tasks/TasksState";
+
 const Home = () => {
   useEffect(() => {
     // Init Materialize JS
@@ -18,7 +20,7 @@ const Home = () => {
   });
 
   return (
-    <>
+    <TasksState>
       <SearchBar />
       <div className="container">
         <AddBtn />
@@ -28,7 +30,7 @@ const Home = () => {
         <EmployeeListModal />
         <Tasks />
       </div>
-    </>
+    </TasksState>
   );
 };
 

@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import TasksContext from "@/context/tasks/tasksContext";
 
 const AddTaskModal = () => {
+  const tasksContext = useContext(TasksContext);
+  const { addTask } = tasksContext;
+
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [employee, setEmployee] = useState("");
@@ -10,7 +14,16 @@ const AddTaskModal = () => {
     if (message === "" || employee === "") {
       M.toast({ html: "Please enter a message and an employee" });
     } else {
-      console.log(message, employee, attention);
+      const newTask = {
+        message,
+        attention,
+        employee,
+        date: new Date(),
+      };
+
+      addTask(newTask);
+
+      M.toast({ html: `Log added by ${employee}` });
 
       // Clear fields
       setMessage("");

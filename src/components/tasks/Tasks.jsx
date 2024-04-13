@@ -1,23 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import TaskItem from "./TaskItem";
 import Preloader from "../layout/Preloader";
+import TasksContext from "@/context/tasks/tasksContext";
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const tasksContext = useContext(TasksContext);
+  const { getTasks, loading, tasks } = tasksContext;
 
   useEffect(() => {
     getTasks();
   }, []);
-
-  const getTasks = async () => {
-    setLoading(true);
-    const res = await fetch("http://localhost:5001/tasks/");
-    const data = await res.json();
-
-    setTasks(data);
-    setLoading(false);
-  };
 
   if (loading) {
     return <Preloader />;
@@ -28,10 +20,10 @@ const Tasks = () => {
       <li className="collection-header">
         <h4 className="center">Tasks</h4>
       </li>
-      {!loading && tasks.length === 0 ? (
+      {!loading && tasks?.length === 0 ? (
         <p className="center">No tasks to show...</p>
       ) : (
-        tasks.map((task) => <TaskItem key={task.id} task={task} />)
+        tasks?.map((task) => <TaskItem key={task.id} task={task} />)
       )}
     </ul>
   );
