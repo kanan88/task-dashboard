@@ -13,6 +13,10 @@ const TaskItem = ({ task }) => {
     M.toast({ html: "Task Deleted" });
   };
 
+  const updateForm = () => {
+    task && setCurrent(task);
+  };
+
   return (
     <li className="collection-item">
       <div>
@@ -21,7 +25,7 @@ const TaskItem = ({ task }) => {
           className={`modal-trigger ${
             task.attention ? "red-text" : "blue-text"
           }`}
-          onClick={() => setCurrent(task)}
+          onClick={updateForm}
         >
           {task.message}
         </a>

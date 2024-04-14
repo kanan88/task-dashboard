@@ -36,6 +36,7 @@ const tasksReducer = (state, action) => {
         tasks: state.tasks.map((task) =>
           task.id === action.payload.id ? action.payload : task
         ),
+        loading: false,
       };
     case SEARCH_TASKS:
       return {

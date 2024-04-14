@@ -121,19 +121,17 @@ const TasksState = (props) => {
   };
 
   // Set current task
-  const setCurrent = (task) => {
-    return {
+  const setCurrent = (task) =>
+    dispatch({
       type: SET_CURRENT,
       payload: task,
-    };
-  };
+    });
 
   // Clear current task
-  const clearCurrent = (task) => {
-    return {
+  const clearCurrent = (task) =>
+    dispatch({
       type: CLEAR_CURRENT,
-    };
-  };
+    });
 
   // Search tasks
   const searchTasks = async (text) => {

@@ -13,7 +13,6 @@ const EditTaskModal = () => {
 
   useEffect(() => {
     if (current) {
-      console.log(current + "000");
       setMessage(current.message);
       setAttention(current.attention);
       setEmployee(current.employee);
